@@ -83,7 +83,7 @@ public class ContactBook {
 
     private int searchIndex(int phone) {
         int i = 0;
-        int result = -1;
+        int result = -2;
         boolean found = false;
         while (i<counter && !found)
             if (contacts[i].getPhone() == phone)
