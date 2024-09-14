@@ -69,7 +69,11 @@ public class ContactBook {
     }
 
     public boolean hasRepeated() {
-        return true;
+        for (int j=0; j<counter; j++)
+            for (int h=j+1; h<counter; h++)
+                if (contacts[j].getPhone() == contacts[h].getPhone())
+                    return true;
+        return false;
     }
 
     private int searchIndex(String name) {
