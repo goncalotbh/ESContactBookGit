@@ -45,6 +45,9 @@ public class ContactBook {
         counter--;
     }
 
+    //Pre: phone != null && hasContact(phone)
+    public String getName(int phone) { return contacts[searchIndex(phone)].getName(); }
+
     //Pre: name != null && hasContact(name)
     public int getPhone(String name) {
         return contacts[searchIndex(name)].getPhone();
@@ -65,8 +68,9 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
-    //Pre: phone != null && hasContact(phone)
-    public String getName(int phone) {return contacts[searchIndex(phone)].getName();}
+    public boolean hasRepeated() {
+        return true;
+    }
 
     private int searchIndex(String name) {
         int i = 0;
@@ -82,16 +86,10 @@ public class ContactBook {
     }
 
     private int searchIndex(int phone) {
-        int i = 0;
-        int result = -2;
-        boolean found = false;
-        while (i<counter && !found)
+        for (int i=0;i<counter; i++)
             if (contacts[i].getPhone() == phone)
-                found = true;
-            else
-                i++;
-        if (found) result = i;
-        return result;
+                return i;
+        return -1;
     }
 
     private void resize() {
