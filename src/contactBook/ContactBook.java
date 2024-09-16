@@ -69,9 +69,9 @@ public class ContactBook {
     }
 
     public boolean hasRepeated() {
-        for (int j=0; j<counter; j++)
-            for (int h=j+1; h<counter; h++)
-                if (contacts[j].getPhone() == contacts[h].getPhone())
+        for (int i=0; i<counter; i++)
+            for (int j=i+1; j<counter; j++)
+                if (contacts[i].getPhone() == contacts[j].getPhone())
                     return true;
         return false;
     }
